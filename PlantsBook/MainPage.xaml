@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:PlantsBook.Pages"
+             x:Class="PlantsBook.MainPage"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+             BackgroundColor="#efefef"
+            BarBackgroundColor="#FFFF"
+            SelectedTabColor="#1A4D24"
+            UnselectedTabColor="#1b6355">
+    <NavigationPage IconImageSource="icon_book.png" Title="Справочник" BarBackgroundColor="#efefef" BarTextColor="#014a3f">
+        <x:Arguments>
+            <local:CategoriesPage/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage IconImageSource="watering_icon.png" Title="Полив" BarBackgroundColor="#efefef" BarTextColor="#014a3f">
+        <x:Arguments>
+            <local:WateringPage x:Name="WaterPage"/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage IconImageSource="star.png" Title="Избранное" BarBackgroundColor="#efefef" BarTextColor="#014a3f">
+        <x:Arguments>
+            <local:BookmarkerPage/>
+        </x:Arguments>
+    </NavigationPage>
+
+
+
+
+
+
+</TabbedPage>

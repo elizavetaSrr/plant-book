@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlantsBook.Pages.ScheduleSettingPage"
+             Title="Настройка расписания">
+    <StackLayout>
+        <Label Text="Задайте расписания полива растения" FontSize="17" TextColor="Black" 
+               HorizontalOptions="StartAndExpand"
+                   Margin="10, 20, 0, 0"
+               FontAttributes="Bold"/>
+        <StackLayout Orientation="Horizontal" Margin="80, 10, 0, 0">
+            <Label Text="Дата отсчета" FontSize="15" TextColor="Black" />
+            <Label Text="Периодичность" FontSize="15" TextColor="Black" Margin="70, 0, 0, 0"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Margin="10, 10, 0, 0">
+            <Image Source="leaves.png" WidthRequest="35"/>
+            <Frame CornerRadius="15" BackgroundColor="#6C9B80" Padding="20, 1, 20, 1" Margin="10, 0, 0, 0" BorderColor="#014a3f" >
+                <DatePicker Format="D" MinimumDate="01/01/1950" MaximumDate="12/31/2040" TextColor="#efefef" HorizontalOptions="Center"
+                        FontSize="14" DateSelected="DatePicker_DateSelected"/>
+            </Frame>
+            <Frame CornerRadius="15" BackgroundColor="#6C9B80" Padding="15, 1, 20, 1" Margin="3, 0, 0, 0" BorderColor="#014a3f" >
+                <Picker x:Name="picker" TextColor="#efefef" FontSize="14" Title="Периодичность" SelectedIndexChanged="Picker_SelectedIndexChanged">
+                    <Picker.Items>
+                        <x:String>1 раз в 1 день</x:String>
+                        <x:String>1 раз в 2 дня</x:String>
+                        <x:String>1 раз в 3 дня</x:String>
+                        <x:String>1 раз в 4 дня</x:String>
+                        <x:String>1 раз в 5 дней</x:String>
+                        <x:String>1 раз в 6 дней</x:String>
+                        <x:String>1 раз в неделю</x:String>
+                        <x:String>1 раз в 2 недели</x:String>
+                        <x:String>1 раз в 3 недели</x:String>
+                        <x:String>1 раз в месяц</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Frame>
+        </StackLayout>
+        <Label Text="Задайте время прихода уведомления" FontSize="17" TextColor="Black" 
+               HorizontalOptions="StartAndExpand"
+                   Margin="10, 30, 0, 0"
+               FontAttributes="Bold"/>
+        <StackLayout Orientation="Horizontal" Margin="80, 15, 0, 0">
+            <Label Text="Время уведомления" FontSize="15" TextColor="Black" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Margin="10, 10, 0, 0">
+            <Image Source="leaves.png" WidthRequest="35"/>
+            <Frame CornerRadius="15" BackgroundColor="#6C9B80" Padding="10, 1, 279, 1" Margin="10, 0, 0, 0" BorderColor="#014a3f" >
+                <TimePicker x:Name="timePicker" FontSize="14" PropertyChanged="TimePicker_PropertyChanged" TextColor="#efefef" ></TimePicker>
+            </Frame>
+        </StackLayout>
+        <Button x:Name="saveBut" Text="Сохранить" FontSize="12" TextColor="#efefef" HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="#014a3f" CornerRadius="25" Margin="0, 30, 0, 0" Padding="100, 0, 100, 0"
+                Clicked="Save_Clicked"/>
+    </StackLayout>
+</ContentPage>

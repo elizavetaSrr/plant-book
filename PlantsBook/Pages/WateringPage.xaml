@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlantsBook.Pages.WateringPage">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="#efefef"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout>
+        <StackLayout HorizontalOptions="CenterAndExpand" Margin="0, 10, 0, 20">
+            <Label Text="Полив" TextColor="#014a3f" FontSize="Title" />
+        </StackLayout>
+        <CollectionView x:Name="CollSchedule" SelectionMode="Single" >
+
+            <CollectionView.EmptyView>
+                <StackLayout>
+                    <Image Source="not_schedule.png" WidthRequest="250" Margin="0, 90, 0, 0"/>
+                    <Label Text="У вас пока нет растений" HorizontalOptions="CenterAndExpand"
+                           FontSize="20" TextColor="#414141" Margin="0, 20, 0, 0"/>
+                    <Label Text="Добавьте растения для напоминаний о" HorizontalOptions="CenterAndExpand"
+                           FontSize="15" TextColor="#5A5959" Margin="0, 10, 0, 0"/>
+                    <Label Text="поливе" HorizontalOptions="CenterAndExpand"
+                           FontSize="15" TextColor="#5A5959" Margin="0, -10, 0, 0"/>
+                    <Button Text="Добавить растение" FontSize="12" TextColor="#efefef" HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="#8D9039" CornerRadius="25" Margin="0, 20, 0, 0" Padding="20, -6, 19, -6"
+                        Clicked="AddPlant_Clicked"/>
+                </StackLayout>
+            </CollectionView.EmptyView>
+            <CollectionView.Header>
+                <StackLayout>
+                    <Label Text="Мои растения" TextColor="#252525" FontSize="23" FontAttributes="Bold" Margin="22, -9, 0, 20"/>
+                </StackLayout>
+            </CollectionView.Header>
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Margin="10, 30, 0, 0">
+                        <Frame BackgroundColor="#014a3f" Margin="20, 0, -40, 0" CornerRadius="50">
+                            <Grid RowDefinitions="150" ColumnDefinitions="150, 170, Auto" >
+                                <ImageButton Grid.Column="0" Source="{Binding NameImg}" Padding="0, 0, 0, 0" 
+                                             WidthRequest="100" HeightRequest="100" 
+                                             CornerRadius="30" IsEnabled="False"
+                                             Aspect="AspectFill"/>
+                                <StackLayout Grid.Column="1" Margin="0, 5, 0, 0" >
+                                    <Label Text="{Binding Name}" Margin="10, 0, 0, 0" TextColor="#efefef"
+                                           FontAttributes="Bold" FontSize="Medium"/>
+                                    <Label Text="{Binding Periodicity}" Margin="10, 0, 0, 0"
+                                           TextColor="#D7DC30" FontSize="14"/>
+                                    <Button Text="Редактировать" CornerRadius="70" FontSize="10"
+                                            BackgroundColor="#8D9039" Margin="8, 5, 30, 0"
+                                            TextColor="#D7DC30" Clicked="Edit_Clicked"/>
+                                </StackLayout>
+                                <StackLayout Grid.Column="3" Margin="0">
+                                    <ImageButton Source="del_icon.png" Aspect="AspectFit" 
+                                             BackgroundColor="#014a3f"  CornerRadius="15" WidthRequest="20" HeightRequest="20"
+                                                 Margin="10, 1, 10, 10"
+                                                 Clicked="Delete_Clicked"/>
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+    
+</ContentPage>

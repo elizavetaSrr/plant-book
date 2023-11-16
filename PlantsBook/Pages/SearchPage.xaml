@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             x:Class="PlantsBook.Pages.SearchPage"
+             BackgroundColor="#efefef"
+             Title="Справочник растений">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="#efefef"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout>
+        <SearchBar x:Name="searchBar" Placeholder="Поиск по названию..." Margin="15, 0, 39, 0"
+                CancelButtonColor="#014a3f"
+                PlaceholderColor="#014a3f"
+                TextColor="#014a3f"
+                TextTransform="Default"
+                HorizontalTextAlignment="Start"
+                FontSize="Subtitle"
+                TextChanged="SearchBar_TextChanged"/>
+        <CollectionView x:Name="collPlants" ItemsSource="{Binding Plants}"  
+                                 VerticalOptions="Center"   
+                                 HorizontalOptions="Center"
+                                 Margin="10"
+                                 SelectionMode="Single"
+                                 SelectionChanged="CollPlants_SelectionChanged" >
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+                        <Grid Padding="1" ColumnSpacing="4" RowSpacing="0" Margin="20, 0, 20, 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Frame CornerRadius="15" Padding="0" IsClippedToBounds="True">
+                                <Image Grid.Row="1" Source="{Binding NameImg}" Aspect="AspectFill" />
+                            </Frame>
+                            <Label Grid.Row="2" Text="{Binding Name}" TextColor="Black" HorizontalTextAlignment="Center" VerticalOptions="Fill" FontAttributes="Bold"/>
+                        </Grid>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+
+
+</ContentPage>

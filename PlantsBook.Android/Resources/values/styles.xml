@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <style name="MainTheme" parent="MainTheme.Base">
+    <item name="android:statusBarColor">@color/ivory</item>
+	<item name="android:windowLightStatusBar">true</item>
+	<item name="android:colorPrimary">@color/colorPrimary</item>
+  </style>
+
+	<style name="MainTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+		<!--If you are using revision 22.1 please use just windowNoTitle. Without android:-->
+		<item name="android:windowNoTitle">true</item>
+		<!--We will be using the toolbar so no need to show ActionBar-->
+		<item name="windowActionBar">false</item>
+		<!-- Set theme colors from http://www.google.com/design/spec/style/color.html#color-color-palette -->
+		<!-- colorPrimary is used for the default action bxar background -->
+		<!-- Цвет полосочки активации-->
+		<item name="colorAccent">#6C9B80</item>
+		<!-- Цвет полосочки активации-->
+		<item name="colorControlNormal">#6C9B80</item>
+		<item name="android:textColor">#346B4C</item>
+		<item name="colorPrimary">#346B4C</item>
+
+		<item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
+
+	</style>
+	<style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+		<item name="colorAccent">#6C9B80</item>
+	</style>
+
+
+
+
+</resources>

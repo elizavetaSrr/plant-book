@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlantsBook.Pages.BookmarkerPage">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="#efefef"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout>
+        <StackLayout Margin="0, 13, 0, 0">
+            <Label Text="Избранное" FontSize="22" TextColor="#014a3f" HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+        <CollectionView x:Name="CollBookmarker"  
+                                 VerticalOptions="Center"   
+                                 HorizontalOptions="Center"
+                                 Margin="10"
+                                 SelectionMode="Single"
+                                 SelectionChanged="CollBookmarker_SelectionChanged" >
+            <CollectionView.EmptyView>
+                <StackLayout>
+                    <Image Source="not_bookmarker.png" WidthRequest="500" Margin="0, 150, 0, 0"/>
+                    <Label Text="Ничего не найдено" HorizontalOptions="CenterAndExpand"
+                           FontSize="17" TextColor="#414141" Margin="0, -43, 0, 0"/>
+                </StackLayout>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+                        <Grid Padding="1" ColumnSpacing="4" RowSpacing="0" Margin="20, 0, 20, 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Frame CornerRadius="15" Padding="0" IsClippedToBounds="True">
+                                <Image Grid.Row="1" Source="{Binding NameImg}" Aspect="AspectFill" />
+                            </Frame>
+                            <Label Grid.Row="2" Text="{Binding Name}" TextColor="Black" HorizontalTextAlignment="Center" VerticalOptions="Fill" FontAttributes="Bold"/>
+                        </Grid>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

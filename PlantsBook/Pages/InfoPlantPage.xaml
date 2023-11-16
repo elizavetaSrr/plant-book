@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlantsBook.Pages.InfoPlantPage"
+             Title="Информация о растении">
+    <ScrollView>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" >
+                <Label x:Name="nameLabel" TextColor="Black" 
+                   FontAttributes="Bold"
+                   FontSize="Title" Margin="47, -1, 0, 10" HorizontalOptions="CenterAndExpand"/>
+                <ImageButton x:Name="Star" WidthRequest="35" BackgroundColor="#efefef" Margin="0, 0, 12, 7" 
+                             HorizontalOptions="End" Clicked="Bookmarker_Clicked"/>
+            </StackLayout>
+            <StackLayout Orientation="Vertical">
+                <ImageButton x:Name="plantImage" WidthRequest="250" HeightRequest="250" 
+                         CornerRadius="15" Aspect="AspectFill" Margin="80, 0, 80, 10" IsEnabled="False"/>
+                <Button Text="Добавить растение" FontSize="12" TextColor="#efefef" HorizontalOptions="Start"
+                    BackgroundColor="#014a3f" CornerRadius="25" Margin="10, 0, 0, 10" Padding="20, -6, 19, -6"
+                        Clicked="SettingSchedule_Clicked"/>
+            </StackLayout>
+            <BoxView Color="#B7B7B7" WidthRequest="450" HeightRequest="1"
+                 HorizontalOptions="Center" VerticalOptions="Center" />
+            <StackLayout Margin="10, 0, 10, 10">
+                <Label Text="Освещение" FontSize="16" TextColor="Black" FontAttributes="Bold"/>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="sun.png" />
+                    <Label x:Name="lightLabel" TextColor="Black" FontSize="13"/>
+                </StackLayout>
+            </StackLayout>
+            <BoxView Color="#B7B7B7" WidthRequest="450" HeightRequest="1"
+                 HorizontalOptions="Center" VerticalOptions="Center" />
+            
+
+            <StackLayout Margin="10, 0, 10, 10">
+                <Label Text="Полив" FontSize="16" TextColor="Black" FontAttributes="Bold"/>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="poliv.png" />
+                    <Label x:Name="waterLabel" TextColor="Black" FontSize="13"/>
+                </StackLayout>
+            </StackLayout>
+            <BoxView Color="#B7B7B7" WidthRequest="450" HeightRequest="1"
+                 HorizontalOptions="Center" VerticalOptions="Center" />
+            
+
+            <StackLayout Margin="10, 0, 10, 10">
+                <Label Text="Почва" FontSize="16" TextColor="Black" FontAttributes="Bold"/>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="pochva.png" WidthRequest="50" />
+                    <Label x:Name="soilLabel" TextColor="Black" FontSize="13"/>
+                </StackLayout>
+            </StackLayout>
+            <BoxView Color="#B7B7B7" WidthRequest="450" HeightRequest="1"
+                 HorizontalOptions="Center" VerticalOptions="Center" />
+
+
+            <StackLayout Margin="10, 0, 10, 10">
+                <Label Text="Удобрение" FontSize="16" TextColor="Black" FontAttributes="Bold"/>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="fertil.png" WidthRequest="53" />
+                    <Label x:Name="fertilizerLabel" TextColor="Black" FontSize="13"/>
+                </StackLayout>
+            </StackLayout>
+            <BoxView Color="#B7B7B7" WidthRequest="450" HeightRequest="1"
+                 HorizontalOptions="Center" VerticalOptions="Center" />
+            
+
+            <StackLayout Margin="10, 0, 10, 20">
+                <Label Text="Пересадка" FontSize="16" TextColor="Black" FontAttributes="Bold"/>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="transfer.png" WidthRequest="55" />
+                    <Label x:Name="transferLabel" TextColor="Black" FontSize="13"/>
+                </StackLayout>
+            </StackLayout>
+            
+
+
+
+
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
